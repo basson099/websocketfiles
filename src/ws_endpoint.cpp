@@ -21,7 +21,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #include "ws_endpoint.h"
-#include "markupstl.h"
 
 WebSocketEndpoint::WebSocketEndpoint()
 {
@@ -219,7 +218,7 @@ int32_t WebSocketEndpoint::user_defined_process(WebSocketPacket &packet, ByteBuf
     // print received websocket payload from client
     std::string str_recv(frame_payload.bytes(), frame_payload.length());
     std::cout << "WebSocketEndpoint - received data, length:" << str_recv.length()
-              << " ,content:" << str_recv.c_str() << std::endl<< std::endl;
+              << " ,content:" << str_recv.c_str() << std::endl;
 
     WebSocketPacket wspacket;
     // set FIN and opcode
