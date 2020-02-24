@@ -14,7 +14,7 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
   * `Support RFC6455`  
   * `No network transport modules included.`As people may have different network transport modules in their projects, so    websocketfiles only fouces on packing/unpacking websocket packet.  
   * `Multi-platform support(linux/windows)`  
-  * `Fully traced websocket message flow.`A fully tracing log of websocket message lets you know websocketfiles code rapidly and  modify and expand funcions easily.  
+  * `Fully traced websocket message flow.`A fully tracing log of websocket message lets you know websocketfiles code rapidly and expand funcions easily.  
   
 ## Class and file overview  
   
@@ -39,16 +39,16 @@ Copy all files except main.cpp from src folder to your project folder. Modify cl
 --------------|.webscoket.|  
 --------------|..payload..|   
 --------------|..buffer...|  
---------------|...........|
+--------------|...........|  
 +------------------------------------------+  
-|............websocketfiles................|  
-|.........process(read buffer).............|  
-|.........from_wire(read buffer)...........|  
-|.........to_wire(write buffer)............|  
+|------------websocketfiles----------------|  
+|---------process(read buffer)-------------|  
+|---------from_wire(read buffer)-----------|  
+|---------to_wire(write buffer)------------|  
 +------------------------------------------+  
 ---------------|read/write|  
----------------|..buffer..|  
----------------|..........|  
+---------------|--buffer--|  
+---------------|----------|  
 +------------------------------------------+  
 |.........network transport module.........|  
 +------------------------------------------+  
