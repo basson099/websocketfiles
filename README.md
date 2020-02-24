@@ -10,12 +10,11 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
 
 ## Features  
   
-  * `An out of box and light weight websocket c++ classes`(1000+ lines of C++98 code).  
-  It is well designed and tested and easily to merge into your ongoing c++ projects(or some old c++ projects).  
+  * `An out of box and light weight websocket c++ classes`(1000+ lines of C++98 code).It is well designed and tested and easily to merge into your ongoing c++ projects(or some old c++ projects).  
   * `Support RFC6455`  
   * `No network transport modules included.`As people may have different network transport modules in their projects, so    websocketfiles only fouces on packing/unpacking websocket packet.  
   * `Multi-platform support(linux/windows)`  
-  * `Fully traced message.`A fully tracing log of websocket message shown on console lets you know websocketfiles code rapidly and makes it easy to modify and expand funcions.  
+  * `Fully traced websocket message flow.`A fully tracing log of websocket message lets you know websocketfiles code rapidly and  modify and expand funcions easily.  
   
 ## Class and file overview  
   
@@ -25,7 +24,6 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
   4. Class ByteBuffer: a simple buffer class base on vector  
   5. File sha1.cpp and base64.cpp: SHA1 and base64 encode/decode functions for masking/unmasking data  
   6. File main.cpp: provide an asynchronous websocket server demonstration using libuv as transportion    
-
   7. Folder src: source file(websocketfiles code)  
   8. Folder include: libuv include files(only for demo)  
   9. Folder lib: libuv so file(only for demo)  
@@ -35,24 +33,24 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
 Copy all files except main.cpp from src folder to your project folder. Modify class WebsocketEndpoint from_wire/to_wire function and combine it with your network transport read/write function.  
   
 +------------------------------------------+  
-|      Your ongoing c++ project            |  
-|   user_defined_process(payload buffer)   |  
+|......Your ongoing c++ project............|  
+|...user_defined_process(payload buffer)...|  
 +------------------------------------------+  
-              | webscoket|  
-              |  payload |   
-              |  buffer  |  
-              |          |
+--------------|.webscoket.|  
+--------------|..payload..|   
+--------------|..buffer...|  
+--------------|...........|
 +------------------------------------------+  
-|            websocketfiles                |  
-|         process(read buffer)             |  
-|         from_wire(read buffer)           |  
-|         to_wire(write buffer)            |  
+|............websocketfiles................|  
+|.........process(read buffer).............|  
+|.........from_wire(read buffer)...........|  
+|.........to_wire(write buffer)............|  
 +------------------------------------------+  
-                |read/write|  
-                |  buffer  |  
-                |          |  
+---------------|read/write|  
+---------------|..buffer..|  
+---------------|..........|  
 +------------------------------------------+  
-|         network transport module         |  
+|.........network transport module.........|  
 +------------------------------------------+  
   
   
