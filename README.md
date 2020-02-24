@@ -10,7 +10,7 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
 
 ## Features  
   
-  * **An out of box and light weight websocket moudle**(two classes and 1000+ lines of C++98 code). It is well designed and tested and easily to merge into your ongoing c++ project(or some old c++ projects).  
+  * **Only two out of box and light weight websocket c++ classes**(1000+ lines of C++98 code). It is well designed and tested and easily to merge into your ongoing c++ project(or some old c++ projects).  
   * **Support RFC6455**  
   * **No network transport modules included**. As people may have different network transport modules in their projects, websocketfiles only fouces on packing/unpacking websocket packet.  
   * **Multi-platform support(linux/windows)**  
