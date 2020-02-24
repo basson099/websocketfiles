@@ -30,30 +30,9 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
   
 ## How to use it in your project  
   
-Copy all files except main.cpp from src folder to your project folder. Modify class WebsocketEndpoint from_wire/to_wire function and combine it with your network transport read/write function.  
-  
-+------------------------------------------+  
-|......Your ongoing c++ project............|  
-|...user_defined_process(payload buffer)...|  
-+------------------------------------------+  
---------------|.webscoket.|  
---------------|..payload..|   
---------------|..buffer...|  
---------------|...........|  
-+------------------------------------------+  
-|------------websocketfiles----------------|  
-|---------process(read buffer)-------------|  
-|---------from_wire(read buffer)-----------|  
-|---------to_wire(write buffer)------------|  
-+------------------------------------------+  
----------------|read/write|  
----------------|--buffer--|  
----------------|----------|  
-+------------------------------------------+  
-|.........network transport module.........|  
-+------------------------------------------+  
-  
-  
+Copy all files except main.cpp from src folder to your project folder. Modify class WebsocketEndpoint from_wire/to_wire function and combine it with your network transport read/write function.The module connection looks like below:  
+
+![Alt text](https://github.com/beikesong/websocketfiles.git/master/image/module-connection.png)  
   
 ## Building and testing  
   
