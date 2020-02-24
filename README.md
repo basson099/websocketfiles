@@ -70,7 +70,7 @@ WebSocketPacket: send data with header size: 2 payload size:28
 ```
   
   
-After a successful websocket handshake, the demo server will return the message that you send to it. It is easily to change response message by modify function WebSocketEndpoint::process_message_data.  
+After a successful websocket handshake, the demo server will return the message that you send to it. It is easily to change response message by modifying function WebSocketEndpoint::process_message_data.  
   
 ```cpp
  switch (packet.get_opcode())  
