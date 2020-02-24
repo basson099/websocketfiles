@@ -37,7 +37,6 @@ Copy all files except main.cpp from src folder to your project folder. Modify fu
 ## Building and testing  
   
 ```bash
-git clone --recurive  
 cd websocketfiles  
 make  
 ./wsfiles_server_uv.1.02  
