@@ -43,9 +43,9 @@ make
 ./wsfiles_server_uv.1.02  
 ```
   
-Attention: The asynchronous demo wsfiles_server_uv only use an event thread and a single working thread based on libuv. If you want to increase the number of working thread larger than 1(default is 1), you can increase UV_THREADPOOL_SIZE value. The most important thing is that you must add some protection codes in main.cpp to make sure some variables are thread safe in multi-working-thread sitution.  
+Attention: The asynchronous demo wsfiles_server_uv only uses an event thread and a single working thread(based on libuv).If you want to increase the number of working thread more than 1 (default value is 1), you can modify UV_THREADPOOL_SIZE value. The most important thing is that you must add some protection codes in main.cpp to make sure some variables are thread safe in multi-working-thread sitution.  
   
-Start wsfiles_server_uv, then we get a tracing of websocket message flow on console:  
+Start wsfiles_server_uv, and we get tracing messages on console:  
 
 ```bash
 set thread pool size:1  
