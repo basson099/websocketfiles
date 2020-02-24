@@ -10,39 +10,38 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
 
 ## Features  
   
-1.An out of box and light weight websocket c++ classes.(1000+ lines of C++98 code).  
+  * `An out of box and light weight websocket c++ classes`(1000+ lines of C++98 code).  
   It is well designed and tested and easily to merge into your ongoing c++ projects(or some old c++ projects).  
-2.Support RFC6455.  
-3.No network transport modules included.As people may have different network transport modules in their projects, so websocketfiles only fouces on packing/unpacking websocket packet.  
-4.Multi-platform support(linux/windows)  
-5.Fully traced message.  
-  A fully tracing log of websocket message shown on console lets you know websocketfiles code rapidly and makes it easy to modify and expand funcions.  
+  * `Support RFC6455`  
+  * `No network transport modules included.`As people may have different network transport modules in their projects, so    websocketfiles only fouces on packing/unpacking websocket packet.  
+  * `Multi-platform support(linux/windows)`  
+  * `Fully traced message.`A fully tracing log of websocket message shown on console lets you know websocketfiles code rapidly and makes it easy to modify and expand funcions.  
   
 ## Class and file overview  
   
-1.Class WebsocketPacket: a websocket packet class  
-2.Class WebsocketEndpoint: a websocket server/client wrapper class  
-3.Class strHelper: a string operation class for parsing websocket handshake message  
-4.Class ByteBuffer: a simple buffer class base on vector  
-5.File sha1.cpp and base64.cpp: SHA1 and base64 encode/decode functions for masking/unmasking data  
-6.File main.cpp: provide an asynchronous websocket server demonstration using libuv as transportion.  
+  1. Class WebsocketPacket: a websocket packet class  
+  2. Class WebsocketEndpoint: a websocket server/client wrapper class  
+  3. Class strHelper: a string operation class for parsing websocket handshake message   
+  4. Class ByteBuffer: a simple buffer class base on vector  
+  5. File sha1.cpp and base64.cpp: SHA1 and base64 encode/decode functions for masking/unmasking data  
+  6. File main.cpp: provide an asynchronous websocket server demonstration using libuv as transportion    
 
-src: source file(websocketfiles code)  
-include: libuv include files(only for demo)  
-lib: libuv so file(only for demo)  
+  7. Folder src: source file(websocketfiles code)  
+  8. Folder include: libuv include files(only for demo)  
+  9. Folder lib: libuv so file(only for demo)  
   
 ## How to use it in your project  
   
 Copy all files except main.cpp from src folder to your project folder. Modify class WebsocketEndpoint from_wire/to_wire function and combine it with your network transport read/write function.  
-
+  
 +------------------------------------------+  
 |      Your ongoing c++ project            |  
 |   user_defined_process(payload buffer)   |  
 +------------------------------------------+  
-                | webscoket|  
-                |  payload |   
-                |  buffer  |  
-                |          |  
+              | webscoket|  
+              |  payload |   
+              |  buffer  |  
+              |          |
 +------------------------------------------+  
 |            websocketfiles                |  
 |         process(read buffer)             |  
@@ -60,15 +59,18 @@ Copy all files except main.cpp from src folder to your project folder. Modify cl
   
 ## Building and testing  
   
+```bash
 git clone --recurive  
 cd websocketfiles  
 make  
 ./wsfiles_server_uv.1.02  
+```
   
 Attention: The asynchronous demo wsfiles_server_uv only use an event thread and a single working thread based on libuv. If you want to increase the number of working thread larger than 1(default is 1), you can increase UV_THREADPOOL_SIZE value. The most important thing is that you must add some protection codes in main.cpp to make sure some variables are thread safe in multi-working-thread sitution.  
   
 After starting wsfiles_server_uv, we get these tracing log on console:  
 
+```bash
 set thread pool size:1  
 peer (xxx.xxx.xxx.xxx, 11464) connected  
 handshake element k:Host v: yyy.yyy.yyy.yyy:9050  
@@ -89,10 +91,12 @@ WebSocketPacket: received data with header size: 6 payload size:28 input oft siz
 WebSocketEndpoint - recv a Text opcode.  
 WebSocketEndpoint - received data, length:28 ,content:first websocket test message  
 WebSocketPacket: send data with header size: 2 payload size:28  
+```
   
   
 After a successful websocket handshake, the demo server will return the message that you send to it. It is easily to change response message by modify function WebSocketEndpoint::process_message_data.  
-
+  
+```cpp
  switch (packet.get_opcode())  
     {  
     case WebSocketPacket::WSOpcode_Continue:  
@@ -111,8 +115,8 @@ After a successful websocket handshake, the demo server will return the message 
         user_defined_process(packet, frame_payload);  
         break;  
         ...  
-        ...  
-  
+        ... 
+```
   
 ## Future  
 
