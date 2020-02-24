@@ -10,11 +10,11 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
 
 ## Features  
   
-  * **An out of box and light weight websocket c++ classes**(1000+ lines of C++98 code).It is well designed and tested and easily to merge into your ongoing c++ project(or some old c++ projects).  
+  * **An out of box and light weight websocket c++ classes**(1000+ lines of C++98 code). It is well designed and tested and easily to merge into your ongoing c++ project(or some old c++ projects).  
   * **Support RFC6455**  
-  * **No network transport modules included.**As people may have different network transport modules in their projects, websocketfiles only fouces on packing/unpacking websocket packet.  
+  * **No network transport modules included**. As people may have different network transport modules in their projects, websocketfiles only fouces on packing/unpacking websocket packet.  
   * **Multi-platform support(linux/windows)**  
-  * **Fully traced websocket message flow.**A fully tracing infomation of websocket message helps you know websocketfiles code rapidly and expand funcions easily.  
+  * **Fully traced websocket message flow**. A fully tracing infomation of websocket message helps you know websocketfiles code rapidly and expand funcions easily.  
   
 ## Class and file overview  
   
@@ -43,7 +43,7 @@ make
 ./wsfiles_server_uv.1.02  
 ```
   
-Attention: The asynchronous demo wsfiles_server_uv only uses an event thread and a single working thread(based on libuv).If you want to increase the number of working thread more than 1 (default value is 1), you can modify UV_THREADPOOL_SIZE value. The most important thing is that you must add some protection codes in main.cpp to make sure some variables are thread safe in multi-working-thread situation.  
+**Attention**: The asynchronous demo wsfiles_server_uv only uses an event thread and a single working thread(based on libuv). If you want to increase the number of working thread more than 1 (default value is 1), you can modify UV_THREADPOOL_SIZE value. The most important thing is that you must add some protection codes in main.cpp to make sure some variables are thread safe in multi-working-thread situation.  
   
 Start wsfiles_server_uv, and we get tracing messages on console:  
 
