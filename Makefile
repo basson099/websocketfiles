@@ -15,8 +15,8 @@ LIB_PATH = -L./ -L./lib/
 
 LIBS = -luv
 
-VERSION = 1.0.2
-TARGET = wsfiles_server_uv.$(VERSION)
+VERSION = 1.02
+TARGET = wsfiles_main_uv.$(VERSION)
 
 $(TARGET) : $(OBJS)
 	$(CXX) $^ -o $@ $(LIB_PATH) $(LIBS)

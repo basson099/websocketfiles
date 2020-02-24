@@ -263,7 +263,7 @@ int32_t WebSocketPacket::pack_dataframe(ByteBuffer &output)
 	else
 	{
 		std::cout << "WebSocketPacket: send data with header size: " << output.length()
-				  << " payload size:" << payload_length_ << std::endl;
+				  << " payload size:" << payload_length_ << std::endl<<std::endl;
 		output.append(payload_.bytes(), payload_.length());
 	}
 

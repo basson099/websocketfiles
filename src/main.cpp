@@ -402,7 +402,7 @@ int main(int argc, const char **argv)
     fail("uv_listen failed: %s", uv_strerror(rc));
   }
 
-  printf("main - main: set thread pool size.\r\n");
+  //printf("main - main: set thread pool size.\r\n");
   set_thread_pool_size();
   // Run the libuv event loop.
   uv_run(uv_default_loop(), UV_RUN_DEFAULT);
