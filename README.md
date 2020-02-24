@@ -131,5 +131,5 @@ After a successful websocket handshake, the demo server will return the message 
 
 
 Future
-1.Add more demos to illusite using different network transport
-2.Support tls
+1.Add more demos to illustrate how to use websocketfiles with Boot.Asio and libevent.
+2.Support TLS.
