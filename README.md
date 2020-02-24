@@ -1,4 +1,4 @@
-# websocketfiles(1.02)  
+# Websocketfiles(1.02)  
 
 ## Introduction  
 
@@ -14,7 +14,7 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
   * `Support RFC6455`  
   * `No network transport modules included.`As people may have different network transport modules in their projects, so    websocketfiles only fouces on packing/unpacking websocket packet.  
   * `Multi-platform support(linux/windows)`  
-  * `Fully traced websocket message flow.`A fully tracing log of websocket message lets you know websocketfiles code rapidly and expand funcions easily.  
+  * `Fully traced websocket message flow.`A fully tracing infomation of websocket message helps you know websocketfiles code rapidly and expand funcions easily.  
   
 ## Class and file overview  
   
@@ -32,7 +32,7 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
   
 Copy all files except main.cpp from src folder to your project folder. Modify class WebsocketEndpoint from_wire/to_wire function and combine it with your network transport read/write function.The module connection looks like below:  
 
-![Alt text](https://github.com/beikesong/websocketfiles.git/master/image/module-connection.png)  
+![Alt text](https://github.com/beikesong/websocketfiles/blob/master/image/module-connection.png)  
   
 ## Building and testing  
   
@@ -45,7 +45,7 @@ make
   
 Attention: The asynchronous demo wsfiles_server_uv only use an event thread and a single working thread based on libuv. If you want to increase the number of working thread larger than 1(default is 1), you can increase UV_THREADPOOL_SIZE value. The most important thing is that you must add some protection codes in main.cpp to make sure some variables are thread safe in multi-working-thread sitution.  
   
-After starting wsfiles_server_uv, we get these tracing log on console:  
+Start wsfiles_server_uv, then we get a tracing of websocket message flow on console:  
 
 ```bash
 set thread pool size:1  
