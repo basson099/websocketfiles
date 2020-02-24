@@ -24,7 +24,7 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
   4. Class ByteBuffer: a simple buffer class base on vector  
   5. File sha1.cpp and base64.cpp: SHA1 and base64 encode/decode functions for masking/unmasking data  
   6. File main.cpp: provide an asynchronous websocket server demonstration using libuv as netork transport.  
-  7. Folder src: source file(websocketfiles code)  
+  7. Folder src: source file(websocketfiles source code)  
   8. Folder include: libuv include files(only for demo)  
   9. Folder lib: libuv so file(only for demo)  
   
@@ -43,7 +43,7 @@ make
 ./wsfiles_server_uv.1.02  
 ```
   
-Attention: The asynchronous demo wsfiles_server_uv only uses an event thread and a single working thread(based on libuv).If you want to increase the number of working thread more than 1 (default value is 1), you can modify UV_THREADPOOL_SIZE value. The most important thing is that you must add some protection codes in main.cpp to make sure some variables are thread safe in multi-working-thread sitution.  
+Attention: The asynchronous demo wsfiles_server_uv only uses an event thread and a single working thread(based on libuv).If you want to increase the number of working thread more than 1 (default value is 1), you can modify UV_THREADPOOL_SIZE value. The most important thing is that you must add some protection codes in main.cpp to make sure some variables are thread safe in multi-working-thread situation.  
   
 Start wsfiles_server_uv, and we get tracing messages on console:  
 
