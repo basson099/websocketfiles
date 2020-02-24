@@ -23,14 +23,14 @@ An asynchronous websocket server using libuv is provided to demostrate how to us
   3. Class strHelper: a string operation class for parsing websocket handshake message   
   4. Class ByteBuffer: a simple buffer class base on vector  
   5. File sha1.cpp and base64.cpp: SHA1 and base64 encode/decode functions for masking/unmasking data  
-  6. File main.cpp: provide an asynchronous websocket server demonstration using libuv as transportion    
+  6. File main.cpp: provide an asynchronous websocket server demonstration using libuv as netork transport.  
   7. Folder src: source file(websocketfiles code)  
   8. Folder include: libuv include files(only for demo)  
   9. Folder lib: libuv so file(only for demo)  
   
 ## How to use it in your project  
   
-Copy all files except main.cpp from src folder to your project folder. Modify class WebsocketEndpoint from_wire/to_wire function and combine it with your network transport read/write function.The module connection looks like below:  
+Copy all files except main.cpp from src folder to your project folder. Modify function WebSocketEndpoint::from_wire/to_wire and combine it with your network transport read/write function.The module-connection looks like below:  
 
 ![Alt text](https://github.com/beikesong/websocketfiles/blob/master/image/module-connection.png)  
   
