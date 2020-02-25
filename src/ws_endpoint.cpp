@@ -60,6 +60,7 @@ int32_t WebSocketEndpoint::process(const char *readbuf, int32_t size, nt_write_c
 int32_t WebSocketEndpoint::from_wire(const char *readbuf, int32_t size)
 {
     fromwire_buf_.append(readbuf, size);
+    std::cout<< "WebSocketEndpoint - set fromwire_buf, current length:"<<fromwire_buf_.length()<<std::endl;
     while (true)
     {
         int64_t nrcv = parse_packet(fromwire_buf_);
@@ -67,8 +68,8 @@ int32_t WebSocketEndpoint::from_wire(const char *readbuf, int32_t size)
         { // for next one
             // clear used data
             int64_t n_used = fromwire_buf_.getoft();
-            //std::cout<< "WebSocketEndpoint - fromwire_buf: used data:"<<n_used <<" nrcv:"<<nrcv
-            //    <<" length:"<<fromwire_buf_.length()<<std::endl;
+            std::cout<< "WebSocketEndpoint - fromwire_buf: used data:"<<n_used <<" nrcv:"<<nrcv
+                <<" length:"<<fromwire_buf_.length()<<std::endl;
             fromwire_buf_.erase(nrcv);
             fromwire_buf_.resetoft();
             if (fromwire_buf_.length() == 0)

@@ -104,7 +104,7 @@ uint64_t WebSocketPacket::recv_dataframe(ByteBuffer &input)
 	if (payload_length_ + header_size > input.length())
 	{
 		// buffer size is not enough, so we continue recving data
-		std::cout << "WebSocketPacket - recv_dataframe: continue recving data." << std::endl;
+		std::cout << "WebSocketPacket: recv_dataframe: continue recving data." << std::endl;
 		input.resetoft();
 		return 0;
 	}
@@ -136,17 +136,26 @@ int32_t WebSocketPacket::fetch_frame_info(ByteBuffer &input)
 	}
 	else if (length_type_ == 126)
 	{
+		/*
 		uint16_t len = 0;
 		input.read_bytes_x((char *)&len, 2);
-		len = (len << 8) | (len & 0xFF);
+		len = (len << 8) | (len >>8 & 0xFF);
+		payload_length_ = len;
+		*/
+		uint16_t len = 0;
+		uint8_t array[2] = {0};
+		input.read_bytes_x((char *)array, 2);
+		len = uint16_t(array[0] << 8) | uint16_t(array[1]);
 		payload_length_ = len;
 	}
 	else if (length_type_ == 127)
 	{
+		// if you don't have ntohll
 		uint64_t len = 0;
-		input.read_bytes_x((char *)&len, 8);
-		len = len << 56 | len << 48 | len << 40 | len << 32 | len << 24 | len << 16 | len << 8 | len;
-		payload_length_ = len;
+		uint8_t array[8] = {0};
+		input.read_bytes_x((char *)array, 8);
+		len = (array[0] << 56) | array[1] << 48 | array[2] << 40 | array[3] << 32 
+		| array[4] << 24 | array[5] << 16 | array[6] << 8 | array[7];
 
 		if (payload_length_ > 0xFFFFFFFF)
 		{
