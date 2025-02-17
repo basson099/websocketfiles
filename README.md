@@ -94,7 +94,11 @@ After a successful websocket handshake, the demo server will return the message 
         ...  
         ... 
 ```
-  
+
+## Additional
+A Chinese introduction : C++实现WebSocket功能及WebSocket协议详解（附代码websocketfiles）
+[https://blog.csdn.net/qq_39540028/article/details/104493049]
+
 ## Future  
 
 1.Add more demos to illustrate how to use websocketfiles with Boot.Asio and libevent.  
